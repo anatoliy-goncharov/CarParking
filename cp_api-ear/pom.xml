@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cp_api</artifactId>
+        <groupId>com.epam</groupId>
+        <version>1.0.001</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>cp_api-ear</artifactId>
+    <packaging>ear</packaging>
+    <name>cp_api EAR module</name>
+    <properties>
+        <currentDate>${maven.build.timestamp}</currentDate>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.epam</groupId>
+            <artifactId>cp_api-ejb</artifactId>
+            <type>ejb</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.epam</groupId>
+            <artifactId>cp_api-dao</artifactId>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.epam</groupId>
+            <artifactId>cp_api-common</artifactId>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.epam</groupId>
+            <artifactId>cp_api-rest</artifactId>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>car_parking</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/cp_api</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.8</version>
+                <configuration>
+                    <version>6</version>
+                    <initializeInOrder>true</initializeInOrder>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
+                    <modules>
+                        <ejbModule>
+                            <groupId>com.epam</groupId>
+                            <artifactId>cp_api-ejb</artifactId>
+                            <bundleFileName>cp_api-ejb.jar</bundleFileName>
+                        </ejbModule>
+                    </modules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>7.4.Final</version>
+                <configuration>
+                    <hostname>hppro</hostname>
+                    <port>9990</port>
+                    <username>admin</username>
+                    <password>0</password>
+                    <name>CarParking</name>
+                    <!--filename>${project.build.finalName}.ear</filename -->
+                    <!--filename>../ctc_api-ear/target/ctc_api.ear</filename -->
+                    <execute-commands/>
+                    <executeCommands/>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
