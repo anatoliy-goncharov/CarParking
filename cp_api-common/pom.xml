@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cp_api-common</artifactId>
-    <name>cp_api client jar</name>
+    <name>cp_api common jar</name>
     <dependencies>
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
