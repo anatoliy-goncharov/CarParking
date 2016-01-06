@@ -3,14 +3,17 @@ package com.epam.api.cp.entities;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.logging.Logger;
 
 @Entity
 @Table(name="USERS")
 @XmlRootElement
-public class User {
+public class User implements Serializable {
+
 
     private static final Logger logger = Logger.getLogger("User");
+    private static final long serialVersionUID = -6642827527318525644L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
