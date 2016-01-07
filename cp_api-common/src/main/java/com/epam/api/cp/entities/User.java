@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.logging.Logger;
 
 @Entity
-@Table(schema = "public", name="\"USERS\"")
+@Table(name="\"USERS\"")
 @XmlRootElement
 public class User implements Serializable {
 
@@ -39,8 +39,8 @@ public class User implements Serializable {
     @Column(name = "\"PASSWORD\"")
     private String password;
 
-    @Column(name = "\"USER_NAME\"")
-    private String userName;
+    @Column(name = "\"LOGIN_NAME\"")
+    private String loginName;
 
     @Column(name = "\"GUEST\"")
     private boolean guest;
@@ -126,12 +126,12 @@ public class User implements Serializable {
         return password;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getLoginName() {
+        return loginName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
     }
 
     public boolean isGuest() {

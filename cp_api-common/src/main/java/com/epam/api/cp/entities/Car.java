@@ -1,24 +1,27 @@
 package com.epam.api.cp.entities;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
-
-@Table(name = "CARS")
+@Entity
+@Table(name = "\"CARS\"")
+@XmlRootElement
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "CAR_ID")
+    @Column(name = "\"CAR_ID\"")
     private Long carId;
 
-    @Column(name = "MODEL")
+    @Column(name = "\"MODEL\"")
     private String model;
 
+    @Column(name = "\"CAR_NUMBER\"")
     private String carNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
-    private Long userId;
+    @ManyToOne()
+    @JoinColumn(name="\"USER_ID\"")
+    private User user;
 
     public String getCarNumber() {
         return carNumber;
@@ -44,4 +47,11 @@ public class Car {
         this.model = model;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
