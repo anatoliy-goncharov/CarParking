@@ -2,20 +2,22 @@ package com.epam.api.cp.entities;
 
 import javax.persistence.*;
 
-@Entity
+
 @Table(name = "CARS")
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "CAR_ID")
     private Long carId;
 
+    @Column(name = "MODEL")
     private String model;
 
     private String carNumber;
 
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
     private Long userId;
 
     public String getCarNumber() {

@@ -13,6 +13,8 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @WebService(name = "RegistrationServicePort", serviceName = "RegistrationService")
 @SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use = SOAPBinding.Use.LITERAL, parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
@@ -23,12 +25,12 @@ import javax.jws.soap.SOAPBinding;
 @Stateless
 public class RegistrationServiceBean implements RegistrationService, RegistrationServiceLocal{
 
-    /*@PersistenceContext(unitName="carparking")
-    private EntityManager entityManager;*/
+    @PersistenceContext(unitName="carparking")
+    private EntityManager entityManager;
 
     @WebMethod()
     public User getUser(@WebParam(name = "userId")Long userId) {
-        return new User();
+        return entityManager.find(User.class, userId);
     }
 
 
