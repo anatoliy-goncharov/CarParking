@@ -4,23 +4,23 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "\"CARS\"")
+@Table(name = "cars")
 @XmlRootElement
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "\"CAR_ID\"")
+    @Column(name = "car_id")
     private Long carId;
 
-    @Column(name = "\"MODEL\"")
+    @Column(name = "model")
     private String model;
 
-    @Column(name = "\"CAR_NUMBER\"")
+    @Column(name = "car_number")
     private String carNumber;
 
     @ManyToOne()
-    @JoinColumn(name="\"USER_ID\"")
+    @JoinColumn(name="user_id")
     private User user;
 
     public String getCarNumber() {

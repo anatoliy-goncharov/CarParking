@@ -5,20 +5,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 @Entity
-@Table(name = "\"ADDITIONAL_INFO\"")
+@Table(name = "additional_info")
 @XmlRootElement
 public class AdditionalInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "INFO_ID")
+    @Column(name = "info_id")
     private Long addInfoId;
 
-    @Column(name = "\"LEAVE_DATE\"")
+    @Column(name = "leave_date")
     private Date leaveDate;
 
-    @ManyToOne
-    @JoinColumn(name = "\"USER_ID\"")
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Long getAddInfoId() {

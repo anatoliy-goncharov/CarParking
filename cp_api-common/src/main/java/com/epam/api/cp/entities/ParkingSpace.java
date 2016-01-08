@@ -4,22 +4,22 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "\"PARKING_SPACE\"")
+@Table(name = "parking_space")
 @XmlRootElement
 public class ParkingSpace {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "\"SPACE_ID\"")
+    @Column(name = "space_id")
     private Long spaceId;
 
-    @Column(name = "\"SPACE_NUMBER\"")
+    @Column(name = "space_number")
     private Integer spaceNumber;
 
-    @Column(name = "\"IS_SPACE_BUSY\"")
+    @Column(name = "is_space_busy")
     private Boolean busySpace;
 
-    @Column(name = "\"IS_RESERVATION\"")
+    @Column(name = "is_reservation")
     private Boolean reservation;
 
     public Boolean getReservation() {

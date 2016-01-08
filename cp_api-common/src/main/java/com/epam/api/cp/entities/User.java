@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.logging.Logger;
 
 @Entity
-@Table(name="\"USERS\"")
+@Table(name="users")
 @XmlRootElement
 public class User implements Serializable {
 
@@ -17,32 +17,32 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "\"USER_ID\"")
+    @Column(name = "user_id")
     private Long userId;
 
-    @Column(name = "\"FIRST_NAME\"")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "\"LAST_NAME\"")
+    @Column(name = "last_name")
     private String lastName;
 
     //private byte[] userAvatar;
-    @Column(name = "\"EMAIL\"")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "\"SKYPE_NAME\"")
+    @Column(name = "skype_name")
     private String skypeName;
 
-    @Column(name = "\"PHONE_NUMBERS\"")
+    @Column(name = "phone_numbers")
     private String phoneNumber;
 
-    @Column(name = "\"PASSWORD\"")
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "\"LOGIN_NAME\"")
+    @Column(name = "login_name")
     private String loginName;
 
-    @Column(name = "\"GUEST\"")
+    @Column(name = "guest")
     private boolean guest;
 
     public Long getUserId() {
