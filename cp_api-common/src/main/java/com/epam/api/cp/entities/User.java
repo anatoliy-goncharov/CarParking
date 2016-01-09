@@ -1,9 +1,15 @@
 package com.epam.api.cp.entities;
 
 
+import com.sun.org.apache.xml.internal.security.utils.Base64;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Entity
@@ -101,7 +107,7 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    /*public void setPassword(String password) {
+    public void setPassword(String password) {
         MessageDigest md;
         try {
             md = MessageDigest.getInstance("SHA-256");
@@ -116,14 +122,6 @@ public class User implements Serializable {
             logger.log(Level.SEVERE, "Password creation failed", e);
             throw new RuntimeException(e);
         }
-    }*/
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public String getLoginName() {
