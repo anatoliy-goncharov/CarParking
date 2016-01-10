@@ -2,11 +2,14 @@ package com.epam.api.cp.entities;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "parking_space")
 @XmlRootElement
-public class ParkingSpace {
+public class ParkingSpace implements Serializable {
+
+    private static final long serialVersionUID = -2022963503628127453L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -2,12 +2,15 @@ package com.epam.api.cp.entities;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "additional_info")
 @XmlRootElement
-public class AdditionalInfo {
+public class AdditionalInfo implements Serializable {
+
+    private static final long serialVersionUID = 7726979447983004592L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,6 +19,9 @@ public class AdditionalInfo {
 
     @Column(name = "leave_date")
     private Date leaveDate;
+
+    @Column(name = "is_expired_info")
+    private boolean expiredInfo;
 
     @OneToOne
     @JoinColumn(name = "user_id")
@@ -35,6 +41,14 @@ public class AdditionalInfo {
 
     public void setLeaveDate(Date leaveDate) {
         this.leaveDate = leaveDate;
+    }
+
+    public boolean isExpiredInfo() {
+        return expiredInfo;
+    }
+
+    public void setExpiredInfo(boolean expiredInfo) {
+        this.expiredInfo = expiredInfo;
     }
 
     public User getUser() {

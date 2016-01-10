@@ -6,9 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by home on 09.01.2016.
- */
 public class UserDao extends GenericDao<User> {
 
     public UserDao() {

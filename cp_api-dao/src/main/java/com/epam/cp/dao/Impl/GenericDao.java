@@ -5,13 +5,11 @@ import com.epam.cp.dao.CarParkingDao;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by home on 09.01.2016.
- */
 public class GenericDao<T> implements CarParkingDao{
 
     private static final String UNIT_NAME = "carparking";
@@ -37,12 +35,13 @@ public class GenericDao<T> implements CarParkingDao{
         return (T) entityManager.merge(entity);
     }
 
-    public Object find(int entityID) {
+    public Object find(Long entityID) {
         return entityManager.find(entityClass, entityID);
     }
 
     public List findAll() {
-        CriteriaQuery cq = entityManager.getCriteriaBuilder().createQuery();
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery cq = builder.createQuery(entityClass);
         cq.select(cq.from(entityClass));
         return entityManager.createQuery(cq).getResultList();
     }

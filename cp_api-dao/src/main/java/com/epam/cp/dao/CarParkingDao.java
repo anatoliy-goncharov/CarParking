@@ -8,7 +8,7 @@ public interface CarParkingDao<T> {
     void save(T entity);
     void delete (T entityToBeRemoved);
     T update(T entity);
-    T find(int entityID);
+    T find(Long entityID);
     List<T> findAll();
     T findOneResult(String namedQuery, Map<String, Object> parameters);
 }
