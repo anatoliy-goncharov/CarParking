@@ -1,6 +1,5 @@
 package com.epam.api.cp.entities;
 
-
 import com.sun.org.apache.xml.internal.security.utils.Base64;
 
 import javax.persistence.*;

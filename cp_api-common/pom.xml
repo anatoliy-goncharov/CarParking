@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cp_api-common</artifactId>
-    <name>cp_api common jar</name>
+    <name>cp_api COMMON module</name>
     <dependencies>
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
@@ -22,6 +22,25 @@
             <artifactId>hibernate-validator</artifactId>
             <version>4.3.0.Final</version>
         </dependency>
+        <dependency>
+            <groupId>com.sun.xml.security</groupId>
+            <artifactId>xml-security-impl</artifactId>
+            <version>1.0</version>
+        </dependency>
+
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
