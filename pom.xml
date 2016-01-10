@@ -10,7 +10,6 @@
         <module>cp_api-dao</module>
         <module>cp_api-rest</module>
         <module>cp_api-ear</module>
-        <module>cp_api-common</module>
     </modules>
     <groupId>com.epam</groupId>
     <version>1.0.001</version>
